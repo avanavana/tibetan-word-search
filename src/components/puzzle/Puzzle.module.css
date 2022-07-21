@@ -1,0 +1,8 @@
+.Grid {
+  display: grid;
+  grid-auto-flow: row;
+  /* csslint ignore:start */
+  grid-gap: 5px;
+  /* csslint ignore:end */
+  margin: 100px auto;
+}

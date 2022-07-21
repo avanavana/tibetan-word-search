@@ -1,0 +1,13 @@
+.WordList {
+  margin: 40px auto 0;
+  padding: 0;
+  text-align: left;
+  width: 500px;
+}
+
+.WordList li {
+  border-top: 2px solid #eee;
+  font-size: 30px;
+  list-style-type: none;
+  padding: 10px 0;
+}
