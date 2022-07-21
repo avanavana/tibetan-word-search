@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+
+import Puzzle from './components/puzzle/Puzzle.js';
+import Words from './components/words/Words.js';
+import { TibetanWordSearch, displayPuzzle, generatePuzzle } from './lib';
 import './App.css';
 
 function App() {
+  const [ solution, setSolution ] = useState([]);
+  const [ words, setWords ] = useState([]);
+
+  useEffect(() => {
+    const wordList = [ 'སྐད་སྒྱུར།', 'འགྲེད་བདར་ཤོར་བ།', 'མིག་ཤེལ།', 'སྒྲ་གདངས།' ];
+    setWords(wordList);
+    setSolution(generatePuzzle(TibetanWordSearch(wordList).toStacks()));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>བོད་ཚིག་འཚོལ་བ།</h1>
+      <Puzzle key="puzzle" solution={solution ? solution : []} size={solution ? solution.length : 0} />
+      <Words key="key" words={words} size={solution ? solution.length : 0}/>
     </div>
   );
 }
