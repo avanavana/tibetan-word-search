@@ -51,11 +51,11 @@ const placeWord = (puzzle, word, options) => {
         const cell = orientations.fill[orientation](size, start, i);
 
   			if (!!puzzle[cell]) {
-          if (puzzle[cell] === letter) { temp.push([cell, letter]), j--; continue }
+          if (puzzle[cell] === letter) { temp.push([cell, letter]); j--; continue }
           else { temp = []; j = word.length; break; }
         }
 
-  			temp.push([cell, letter]), j--;
+  			temp.push([cell, letter]); j--;
   		}
 
       if (j <= 0) break;
@@ -92,7 +92,7 @@ const generatePuzzle = (input, { lang = 'bo', reverse = true, diagonals = true }
 		for (const word of words) {
 			const placement = placeWord(puzzle, word, { reverse, diagonals });
 			if (!placement) break;
-			placement.forEach(([cell, letter]) => { puzzle[cell] = letter; }), remaining--;
+			placement.forEach(([cell, letter]) => { puzzle[cell] = letter; }); remaining--;
 		}
 
 		if (remaining <= 0) {
@@ -109,8 +109,8 @@ const displayPuzzle = (puzzle) => {
 	let row = '', size = Math.sqrt(puzzle.length);
 
 	for (let x of [ ...new Array(size).fill().map((_) => puzzle.splice(0, size)) ]) {
-		for (y of x) row += y ? y : '-';
-		console.log(row), row = '';
+		for (let y of x) { row += y ? y : '-'; }
+		console.log(row); row = '';
 	}
 }
 
