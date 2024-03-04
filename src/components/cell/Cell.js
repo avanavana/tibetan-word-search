@@ -1,7 +1,7 @@
 import classes from './Cell.module.css';
 
 function Cell({ stack, index }) {
-  return <a className={classes.Cell}>{stack}</a>;
+  return <button className={classes.Cell}>{stack}</button>;
 }
 
 export default Cell;

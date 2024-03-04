@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Puzzle from './components/puzzle/Puzzle.js';
 import Words from './components/words/Words.js';
-import { TibetanWordSearch, displayPuzzle, generatePuzzle } from './lib';
+import { TibetanWordSearch, generatePuzzle } from './lib';
 import './App.css';
 
 function App() {
